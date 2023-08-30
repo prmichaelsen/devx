@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Add the following to your .bashrc, .zshrc, or .bash_profile to enable running devx globally."
+echo
+echo "  . $PWD/.devxrc"
+echo

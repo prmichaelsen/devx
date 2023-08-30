@@ -1,0 +1,20 @@
+{
+  "name": "@prmichaelsen/devx",
+  "scripts": {
+    "ts-node": "ts-node"
+  },
+  "author": "",
+  "license": "ISC",
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "ESNext",
+      "esModuleInterop": true
+    },
+    "esm": true
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.7",
+    "ts-node": "^10.9.1"
+  }
+}

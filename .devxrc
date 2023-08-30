@@ -1,0 +1,27 @@
+#!/bin/bash
+TARGET_DIR="$(dirname "$0")"
+chmod +x $TARGET_DIR/devx
+alias devx="$TARGET_DIR/devx"
+
+echo $1
+
+EXEC_DIR="$(dirname "$0")"
+SRC_DIR=$EXEC_DIR/src
+
+_devx()
+{
+    # local SRC_DIR=$HOME/memo
+    local cmd=$1 cur=$2 pre=$3
+    local arr i file
+
+    arr=( $( cd "$SRC_DIR" && compgen -f -- "$cur" ) )
+    COMPREPLY=()
+    for ((i = 0; i < ${#arr[@]}; ++i)); do
+        file=${arr[i]}
+        if [[ -d $SRC_DIR/$file ]]; then
+            file=$file/
+        fi
+        COMPREPLY[i]=$file
+    done
+}
+complete -F _devx -o nospace devx

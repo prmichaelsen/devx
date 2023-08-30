@@ -1,0 +1,7 @@
+#!/bin/bash
+EXEC_DIR="$(dirname $0)/src"
+cd $EXEC_DIR
+SCRIPT=$1
+shift
+shift
+npm run ts-node -- $EXEC_DIR/$SCRIPT $@
