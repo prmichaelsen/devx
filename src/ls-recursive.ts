@@ -4,7 +4,8 @@ import path from 'path';
 
 const args = process.argv;
 
-const dir = args[2] || '.';
+const targetDir = args[2];
+const dir = path.join(targetDir, args[3] || '.');
 
 function listRelativePaths(directoryPath: string, currentPath = ''): void {
   const items = fs.readdirSync(directoryPath);

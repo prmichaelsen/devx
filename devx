@@ -1,7 +1,13 @@
 #!/bin/bash
-EXEC_DIR="$(dirname $0)/src"
-cd $EXEC_DIR
+CUR_DIR=$PWD
+EXEC_DIR="$(dirname $0)"
+SRC_DIR=$EXEC_DIR/src
 SCRIPT=$1
 shift
 shift
-npm run ts-node -- $EXEC_DIR/$SCRIPT $@
+# $SRC_DIR/$SCRIPT is the script you are executing
+# e.g. /path/to/devx/workspace/ls-recursive.ts
+# The first argument to any devx script will be
+# the directory it was executed from.
+# Access it like so: `const targetDir = process.argv[2]`
+npm --prefix $EXEC_DIR run ts-node -- $SRC_DIR/$SCRIPT $CUR_DIR $@
